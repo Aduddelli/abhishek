@@ -1,0 +1,20 @@
+---
+- name: configure apache2 using apt module
+  hosts: all
+  become: true
+  tasks:
+    - name: install apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+    - name: edit the index,html
+      copy:
+        content: welcome to my page
+        dest: var/www/html/index.html
+    - name: restart the apache2
+      service:
+        name: apache2
+        state: restarted
+...
+

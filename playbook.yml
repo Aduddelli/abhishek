@@ -1,0 +1,11 @@
+---
+- name: user creation
+  hosts: all
+  tasks:
+    - name: user crestion
+      user:
+        name: abhi
+        password: abhishek
+        uid: 3241
+        comment: welcome to ansible
+...
